@@ -1,0 +1,192 @@
+/* ═══════════════════════════════════════
+   admin.css — styles specific to the
+   Administrator role views only
+   ═══════════════════════════════════════ */
+
+/* ── SIDEBAR BRAND COLOR ── */
+#s-admin .bi {
+  background: var(--amber);
+  color: #0D1B2A;
+}
+[data-theme="light"] #s-admin .bi { color: #fff; }
+
+/* ── SALARY COMPARISON BOXES ── */
+.salary-compare {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.sc-box {
+  background: var(--bg3);
+  border-radius: 8px;
+  padding: 10px 16px;
+  text-align: center;
+}
+.sc-box.proposed {
+  background: var(--amber-s);
+  border: 1px solid var(--amber);
+}
+.sc-box.diff {
+  background: var(--green-s);
+}
+.sc-box label {
+  display: block;
+  font-size: 10px;
+  color: var(--t3);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.sc-box.proposed label { color: var(--amber); }
+.sc-box.diff     label { color: var(--green); }
+.sc-box .sc-val {
+  font-family: var(--mono);
+  font-size: 16px;
+  color: var(--t1);
+  margin-top: 3px;
+}
+.sc-box.proposed .sc-val { color: var(--amber); }
+.sc-box.diff     .sc-val { color: var(--green); }
+.sc-arrow { font-size: 18px; color: var(--t3); }
+
+/* ── APPROVAL REASON BOX ── */
+.approval-reason {
+  margin-top: 12px;
+  background: var(--bg3);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--t2);
+  line-height: 1.6;
+}
+.approval-reason strong { color: var(--t1); }
+
+/* ── APPROVAL CARD (full detail) ── */
+.approval-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+.approval-card:last-child { border-bottom: none; padding-bottom: 0; }
+.approval-card-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--amber-s);
+  border: 1.5px solid var(--amber);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.approval-card-body { flex: 1; }
+.approval-card-name { font-size: 15px; font-weight: 700; color: var(--t1); }
+.approval-card-meta { font-size: 12px; color: var(--t3); margin-top: 2px; }
+.approval-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.approval-card-actions .btn {
+  padding: 10px 20px;
+  min-width: 100px;
+}
+
+.adm-employee-controls {
+  margin-bottom: 12px;
+}
+
+.adm-employee-controls .fc {
+  max-width: 420px;
+}
+
+/* ── ADD EMPLOYEE MODAL ── */
+.adm-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--bg1) 45%, #000 55%);
+  padding: 20px;
+}
+
+.adm-modal-card {
+  width: min(760px, 100%);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg2);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  padding: 18px;
+}
+
+.adm-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.adm-modal-head h3 {
+  margin: 0;
+  color: var(--t1);
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+.adm-modal-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding-top: 14px;
+}
+
+.adm-modal-form .fg {
+  margin: 0;
+}
+
+.adm-modal-form .fc,
+.adm-modal-form select.fc {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg3);
+  color: var(--t1);
+  padding: 0 12px;
+  font-size: 13px;
+  outline: none;
+}
+
+.adm-modal-form .fc:focus,
+.adm-modal-form select.fc:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--amber) 35%, transparent);
+}
+
+.adm-feedback {
+  margin: 2px 0 0;
+  font-size: 12px;
+  grid-column: 1 / -1;
+  min-height: 16px;
+}
+
+.adm-feedback.ok { color: #3EC97A; }
+.adm-feedback.err { color: #E85555; }
+
+.adm-modal-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 760px) {
+  .adm-modal-form {
+    grid-template-columns: 1fr;
+  }
+}
